@@ -6,11 +6,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    authorize @project, :show?
   end
 
   def edit
   end
-  
+
   def update
     if @project.update(project_params)
       flash[:notice] = "Project has been updated."
